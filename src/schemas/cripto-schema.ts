@@ -6,12 +6,17 @@ export const CurrencySchema = z.object({
 });
 
 export const CryptoCurrencyResponseSchema = z.object({
-    CoinInfo: z.object({
-      FullName: z.string(),
-      Name: z.string(),
-    }),
-})
+  CoinInfo: z.object({
+    FullName: z.string(),
+    Name: z.string(),
+  }),
+});
 
+export const CryptoCurrenciesResponseSchema = z.array(
+  CryptoCurrencyResponseSchema
+);
 
-export const CryptoCurrenciesResponseSchema = z.array(CryptoCurrencyResponseSchema)
-
+export const PairSchema = z.object({
+  currency: z.string(),
+  criptocurrency: z.string(),
+});
