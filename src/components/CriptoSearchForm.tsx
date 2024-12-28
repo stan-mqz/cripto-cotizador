@@ -1,4 +1,6 @@
 
+import { currencies } from "../data/data"
+
 export const CriptoSearchForm = () => {
   return (
     <form className="form">
@@ -6,6 +8,9 @@ export const CriptoSearchForm = () => {
             <label htmlFor="currency">Moneda</label>
             <select name="currency" id="currency">
                 <option value="">--Selecione--</option>
+                {currencies.map(currency => (
+                    <option key={currency.code} value={currency.code}>{currency.name}</option>
+                ))}
             </select>
         </div>
 
