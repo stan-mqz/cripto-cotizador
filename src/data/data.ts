@@ -6,3 +6,5 @@ export const currencies : Currency[] = [
   { code: 'EUR', name: 'Euro'},
   { code: 'GBP', name: 'Libra Esterlina'},
 ]
+
+
