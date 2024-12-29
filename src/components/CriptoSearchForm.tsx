@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { currencies } from "../data/data";
 import { useCryptoStore } from "../store";
-import { PairSchema } from "../types/types";
+import { Pair } from "../types/types";
 import { ErrorMessage } from "./ErrorMessage";
 
 export const CriptoSearchForm = () => {
   const cryptoCurrencies = useCryptoStore((state) => state.cryptoCurrencies);
   const fetchData = useCryptoStore((state) => state.fetchData);
-  const [pair, setPair] = useState<PairSchema>({
+  const [pair, setPair] = useState<Pair>({
     criptocurrency: "",
     currency: "",
   });
