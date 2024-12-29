@@ -1,12 +1,13 @@
 import { create } from "zustand";
-import { CryptoCurrencyResponseSchema } from "./types/types";
+import { CryptoCurrencyResponseSchema, PairSchema } from "./types/types";
 import { devtools } from "zustand/middleware";
-import { getCryptos } from "./services/CryptoService";
+import { fetchCurrenCryptoPrice, getCryptos } from "./services/CryptoService";
 
 
 type CryptoStore = {
   cryptoCurrencies: CryptoCurrencyResponseSchema[];
   fetchCryptos: () => Promise<void>;
+  fetchData: (pair: PairSchema) => Promise<void>
 };
 
 export const useCryptoStore = create<CryptoStore>()(
@@ -19,5 +20,9 @@ export const useCryptoStore = create<CryptoStore>()(
         cryptoCurrencies,
       }));
     },
+
+    fetchData: async (pair) => {
+     await fetchCurrenCryptoPrice(pair)
+    }
   }))
 );
